@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-6" *ngFor="let category of categories">
+    <div class="card custom-card" (click)="viewCategoryProducts(category.id)">
+      <div class="card-body">
+        <!-- Update to use 'categoryName' -->
+        <h5 class="card-title">{{ category.categoryName }}</h5>
+
+        <!-- Update to use 'disc' -->
+        <p class="card-text">{{ category.disc || 'No description available.' }}</p>
+
+        <!-- Update to use 'id' -->
+        <a [routerLink]="['/Product', category.id]" class="btn btn-primary custom-btn">
+          View Products
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="product">
+  <div class="card mb-4">
+    <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}" *ngIf="product.imageUrl">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description || 'No description available.' }}</p>
+      <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+      <a [routerLink]="['/products/category', product.categoryId]" class="btn btn-primary">Back to Category</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!product">
+  <p>Product not found.</p>
+</div>

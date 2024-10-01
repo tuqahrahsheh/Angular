@@ -1,0 +1,20 @@
+<div *ngIf="products.length > 0; else noProducts">
+  <div class="row">
+    <div class="col-sm-6" *ngFor="let product of products">
+      <div class="card custom-card">
+        <img [src]="product.imageUrl" class="card-img-top" alt="Product Image" *ngIf="product.imageUrl">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description || 'No description available.' }}</p>
+          <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+          <!-- Button to view product details -->
+          <a [routerLink]="['/products', product.id]" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p>No products available.</p>
+</ng-template>
